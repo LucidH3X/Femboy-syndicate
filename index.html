@@ -58,7 +58,7 @@ function el(tag, cls, text) {
 }
 function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
 
-var API = 'PASTE_YOUR_WEB_APP_URL_HERE'; // the /exec link from Deploy > Web app
+var API = 'https://script.google.com/macros/s/AKfycby5YCuyzwtJOmJPriL2P-BrP4GakaH69FxJtpHlbujVhybPyxitSFJRUJdYoT2gq7U/exec'; // the /exec link from Deploy > Web app
 fetch(API + (API.indexOf('?') < 0 ? '?' : '&') + 'data=1')
   .then(function (r) { return r.json(); })
   .then(init)
