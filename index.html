@@ -1,54 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Femboy Syndicate DKP</title>
 <style>
   :root{--bg:#150a22;--card:#21122f;--line:#3a2552;--text:#f4eefb;--mute:#b9a8cf;--pink:#e0307a;--c0:#3d93f0;--c1:#f47230;--c2:#00b894}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 Arial,Helvetica,sans-serif}
-  header{padding:28px 20px 18px;background:linear-gradient(135deg,#3b1c5a,#150a22);border-bottom:3px solid var(--pink)}
-  h1{margin:0;font-size:26px}
-  header p{margin:4px 0 0;color:var(--mute);font-size:13px}
-  nav{display:flex;gap:8px;flex-wrap:wrap;padding:14px 20px 0}
-  button.tab,button.pill{background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:inherit;cursor:pointer}
+  header{padding:34px 20px 22px;background:linear-gradient(135deg,#3b1c5a,#150a22);border-bottom:3px solid var(--pink);text-align:center}
+  h1{margin:0;font-size:28px}
+  header p{margin:6px 0 0;color:var(--mute);font-size:14px}
+  nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:14px 20px 0}
+  button{font:inherit;cursor:pointer}
+  button.tab{background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:8px 16px}
   button.tab.on{background:var(--pink);border-color:var(--pink);font-weight:bold}
-  button.pill.on{font-weight:bold;color:#fff}
-  main{padding:16px 20px 40px;max-width:980px;margin:0 auto}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  main{padding:18px 20px 40px;max-width:760px;margin:0 auto}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px}
   .card h2{margin:0 0 10px;font-size:17px}
-  .row{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--line)}
-  .row:first-of-type{border-top:0}
-  .rank{width:26px;color:var(--mute);text-align:right}
-  .name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .val{font-weight:bold;min-width:56px;text-align:right}
-  .bar{flex:1.4;height:8px;background:#2f1c44;border-radius:4px;overflow:hidden}
-  .bar i{display:block;height:100%;border-radius:4px}
-  input[type=search]{width:100%;margin:10px 0;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#1a0e29;color:var(--text);font:inherit}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
-  .tile{background:#2a1740;border-radius:10px;padding:14px}
-  .tile b{display:block;font-size:22px}
+  form{display:flex;gap:8px}
+  input[type=search]{flex:1;min-width:0;padding:13px 16px;border-radius:10px;border:1px solid var(--line);background:#1a0e29;color:var(--text);font:inherit;font-size:16px}
+  button.go{background:var(--pink);color:#fff;border:0;border-radius:10px;padding:0 22px;font-weight:bold}
+  .hint{color:var(--mute);font-size:13px;margin-top:8px}
+  .total{text-align:center;margin:4px 0 14px}
+  .total b{display:block;font-size:46px;line-height:1.1}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .tile{background:#2a1740;border-radius:10px;padding:14px;border-top:4px solid var(--k)}
+  .tile b{display:block;font-size:26px}
   .mute{color:var(--mute);font-size:13px}
-  .need{margin-top:8px;color:#ffd3e6;font-size:13px}
+  .row{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+  .row:first-of-type{border-top:0}
+  .row .d{width:84px;color:var(--mute);font-size:13px}
+  .row .w{flex:1;min-width:0}
+  .row .n{font-weight:bold;min-width:52px;text-align:right}
+  .pos{color:#6be0b8}.neg{color:#ff9fc1}
+  .err{color:#ffc2d9}
   table{width:100%;border-collapse:collapse;font-size:14px}
   th,td{padding:6px 8px;text-align:center;border-top:1px solid var(--line)}
   th:first-child,td:first-child{text-align:left}
   td.zero{background:#4a1630;color:#ffc2d9}
-  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0}
-  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;background:var(--k)}
-  .err{padding:30px 20px;color:#ffc2d9}
+  .bar{height:8px;background:#2f1c44;border-radius:4px;overflow:hidden;margin-top:4px}
+  .bar i{display:block;height:100%}
+  .vt{background:#2a1740;border-radius:10px;padding:14px}
 </style>
 </head>
 <body>
 <header>
-  <h1 id="title">Femboy Syndicate</h1>
-  <p id="sub">Loading...</p>
+  <h1>Femboy Syndicate DKP</h1>
+  <p id="sub">Check how much DKP you have</p>
 </header>
 <nav id="tabs"></nav>
 <main id="view"></main>
 
 <script>
+var API = 'https://script.google.com/macros/s/AKfycby5YCuyzwtJOmJPriL2P-BrP4GakaH69FxJtpHlbujVhybPyxitSFJRUJdYoT2gq7U/exec'; // the /exec link from Deploy > Web app
 var COLORS = ['var(--c0)', 'var(--c1)', 'var(--c2)'];
-var D = null, current = null, coreIdx = 0;
+var D = null;
 
 function el(tag, cls, text) {
   var e = document.createElement(tag);
@@ -57,181 +64,182 @@ function el(tag, cls, text) {
   return e;
 }
 function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
+function api(query) {
+  return fetch(API + (API.indexOf('?') < 0 ? '?' : '&') + query).then(function (r) { return r.json(); });
+}
 
-var API = 'https://script.google.com/macros/s/AKfycby5YCuyzwtJOmJPriL2P-BrP4GakaH69FxJtpHlbujVhybPyxitSFJRUJdYoT2gq7U/exec'; // the /exec link from Deploy > Web app
-fetch(API + (API.indexOf('?') < 0 ? '?' : '&') + 'data=1')
-  .then(function (r) { return r.json(); })
-  .then(init)
-  .catch(function (e) {
-    document.getElementById('view').appendChild(el('div', 'err', 'Could not load data. ' + (e && e.message ? e.message : '')));
-    document.getElementById('sub').textContent = 'Error';
-  });
+api('data=1').then(init).catch(function (e) {
+  document.getElementById('view').appendChild(el('div', 'card err', 'Could not load. ' + (e && e.message ? e.message : '')));
+});
 
-function init(data) {
-  D = data;
-  document.getElementById('title').textContent = D.guild + ' DKP';
-  document.getElementById('sub').textContent = 'Updated ' + new Date(D.updated).toLocaleString();
+function init(d) {
+  D = d;
   var sections = [];
-  if (D.standings) sections.push(['Standings', renderStandings]);
-  if (D.comp) sections.push(['Raid comp', renderComp]);
-  if (D.vault) sections.push(['Vault', renderVault]);
-  if (D.donors) sections.push(['Top donors', renderDonors]);
-  if (D.bank) sections.push(['Guild bank', renderBank]);
+  if (d.on && d.on['DKP lookup']) sections.push(['My DKP', renderLookup]);
+  if (d.standings) sections.push(['Standings', renderStandings]);
+  if (d.comp) sections.push(['Raid comp', renderComp]);
+  if (d.vault) sections.push(['Vault', renderVault]);
+  if (d.donors) sections.push(['Top donors', renderDonors]);
+  if (d.bank) sections.push(['Guild bank', renderBank]);
+  var v = document.getElementById('view');
+  if (!sections.length) { v.appendChild(el('div', 'card err', 'Nothing is public right now.')); return; }
+  window.__s = sections;
   var nav = document.getElementById('tabs');
-  if (!sections.length) {
-    document.getElementById('view').appendChild(el('div', 'err', 'Nothing is public right now.'));
-    return;
+  if (sections.length > 1) {
+    sections.forEach(function (s, i) {
+      var b = el('button', 'tab', s[0]);
+      b.onclick = function () { select(i); };
+      nav.appendChild(b);
+    });
   }
-  sections.forEach(function (s, i) {
-    var b = el('button', 'tab', s[0]);
-    b.onclick = function () { select(i); };
-    nav.appendChild(b);
-  });
-  window.__sections = sections;
   select(0);
 }
 
 function select(i) {
-  var tabs = document.querySelectorAll('button.tab');
-  tabs.forEach(function (t, j) { t.classList.toggle('on', i === j); });
-  var v = document.getElementById('view');
-  clear(v);
-  window.__sections[i][1](v);
+  document.querySelectorAll('button.tab').forEach(function (t, j) { t.classList.toggle('on', i === j); });
+  var v = document.getElementById('view'); clear(v);
+  window.__s[i][1](v);
+}
+
+function renderLookup(v) {
+  var card = el('div', 'card');
+  card.appendChild(el('h2', null, 'Look up your DKP'));
+  var f = el('form');
+  var inp = el('input'); inp.type = 'search'; inp.placeholder = 'Your character name'; inp.autocomplete = 'off';
+  var go = el('button', 'go', 'Check'); go.type = 'submit';
+  f.appendChild(inp); f.appendChild(go);
+  card.appendChild(f);
+  card.appendChild(el('div', 'hint', 'Type your main or any of your alts. Spelling must match.'));
+  v.appendChild(card);
+  var out = el('div'); v.appendChild(out);
+
+  f.onsubmit = function (ev) {
+    ev.preventDefault();
+    var q = inp.value.trim();
+    if (!q) return;
+    clear(out);
+    out.appendChild(el('div', 'hint', 'Looking...'));
+    api('player=' + encodeURIComponent(q)).then(function (r) { clear(out); showPlayer(out, r); })
+      .catch(function () { clear(out); out.appendChild(el('div', 'card err', 'Could not load. Try again.')); });
+  };
+}
+
+function showPlayer(out, r) {
+  if (r.error) { out.appendChild(el('div', 'card err', r.error)); return; }
+  var c = el('div', 'card');
+  c.appendChild(el('h2', null, r.main));
+  var t = el('div', 'total'); t.appendChild(el('b', null, String(r.total))); t.appendChild(el('span', 'mute', 'total DKP'));
+  c.appendChild(t);
+  var g = el('div', 'grid');
+  r.cores.forEach(function (x, i) {
+    var tile = el('div', 'tile'); tile.style.setProperty('--k', COLORS[i % 3]);
+    tile.appendChild(el('div', 'mute', x.core));
+    tile.appendChild(el('b', null, x.dkp === null ? '-' : String(x.dkp)));
+    if (x.dkp === null) tile.appendChild(el('div', 'mute', 'not in this core'));
+    g.appendChild(tile);
+  });
+  c.appendChild(g);
+  out.appendChild(c);
+
+  var a = el('div', 'card');
+  a.appendChild(el('h2', null, 'Recent activity'));
+  if (!r.activity.length) a.appendChild(el('div', 'mute', 'Nothing yet.'));
+  r.activity.forEach(function (x) {
+    var row = el('div', 'row');
+    row.appendChild(el('span', 'd', x.date));
+    var w = el('span', 'w', x.what); w.appendChild(el('div', 'mute', x.core));
+    row.appendChild(w);
+    var n = el('span', 'n ' + (x.change >= 0 ? 'pos' : 'neg'), (x.change >= 0 ? '+' : '') + x.change);
+    row.appendChild(n);
+    a.appendChild(row);
+  });
+  out.appendChild(a);
 }
 
 function renderStandings(v) {
-  var pills = el('div'); pills.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap';
   D.standings.forEach(function (s, i) {
-    var b = el('button', 'pill' + (i === coreIdx ? ' on' : ''), s.core);
-    if (i === coreIdx) b.style.background = COLORS[i % 3];
-    b.onclick = function () { coreIdx = i; clear(v); renderStandings(v); };
-    pills.appendChild(b);
-  });
-  v.appendChild(pills);
-  var search = el('input'); search.type = 'search'; search.placeholder = 'Search a player';
-  v.appendChild(search);
-  var card = el('div', 'card');
-  v.appendChild(card);
-  var rows = D.standings[coreIdx].rows.slice().sort(function (a, b) { return b.balance - a.balance; });
-  var max = Math.max.apply(null, rows.map(function (r) { return r.balance; }).concat([1]));
-  function draw() {
-    clear(card);
-    card.appendChild(el('h2', null, D.standings[coreIdx].core + ' standings'));
-    var q = search.value.toLowerCase();
-    var shown = 0;
-    rows.forEach(function (r, i) {
-      if (q && r.name.toLowerCase().indexOf(q) < 0) return;
-      shown++;
+    var c = el('div', 'card'); c.appendChild(el('h2', null, s.core));
+    var rows = s.rows.slice().sort(function (a, b) { return b.balance - a.balance; });
+    var max = Math.max.apply(null, rows.map(function (r) { return r.balance; }).concat([1]));
+    if (!rows.length) c.appendChild(el('div', 'mute', 'No players yet.'));
+    rows.forEach(function (r, j) {
       var row = el('div', 'row');
-      row.appendChild(el('span', 'rank', String(i + 1)));
-      row.appendChild(el('span', 'name', r.name));
-      var bar = el('span', 'bar'); var f = el('i');
-      f.style.width = Math.max(0, r.balance) / max * 100 + '%';
-      f.style.background = COLORS[coreIdx % 3];
-      bar.appendChild(f); row.appendChild(bar);
-      row.appendChild(el('span', 'val', String(r.balance)));
-      card.appendChild(row);
+      row.appendChild(el('span', 'd', '#' + (j + 1)));
+      var w = el('span', 'w', r.name);
+      var bar = el('div', 'bar'); var fill = el('i');
+      fill.style.width = Math.max(0, r.balance) / max * 100 + '%'; fill.style.background = COLORS[i % 3];
+      bar.appendChild(fill); w.appendChild(bar); row.appendChild(w);
+      row.appendChild(el('span', 'n', String(r.balance)));
+      c.appendChild(row);
     });
-    if (!shown) card.appendChild(el('div', 'mute', 'No players to show.'));
-  }
-  search.oninput = draw;
-  draw();
+    v.appendChild(c);
+  });
 }
 
 function roleRow(label, have, target, color) {
   var row = el('div', 'row');
-  row.appendChild(el('span', 'name', label));
-  var bar = el('span', 'bar'); var f = el('i');
-  f.style.width = Math.min(100, target ? have / target * 100 : 0) + '%';
-  f.style.background = color;
-  bar.appendChild(f); row.appendChild(bar);
-  row.appendChild(el('span', 'val', have + ' / ' + target));
+  var w = el('span', 'w', label);
+  var bar = el('div', 'bar'); var f = el('i');
+  f.style.width = Math.min(100, target ? have / target * 100 : 0) + '%'; f.style.background = color;
+  bar.appendChild(f); w.appendChild(bar); row.appendChild(w);
+  row.appendChild(el('span', 'n', have + ' / ' + target));
   return row;
 }
 
 function renderComp(v) {
-  var grid = el('div'); grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px';
   D.comp.roles.forEach(function (r, i) {
     var c = el('div', 'card');
     c.appendChild(el('h2', null, r.core + ' - ' + r.raiders + ' raiders'));
     c.appendChild(roleRow('Tanks', r.tanks, r.tankTarget, COLORS[i % 3]));
     c.appendChild(roleRow('Healers', r.healers, r.healerTarget, COLORS[i % 3]));
     c.appendChild(roleRow('DPS', r.dps, r.dpsTarget, COLORS[i % 3]));
-    c.appendChild(el('div', 'mute', r.melee + ' melee, ' + r.ranged + ' ranged'));
-    c.appendChild(el('div', 'need', r.need));
-    grid.appendChild(c);
+    c.appendChild(el('div', 'hint', r.need));
+    v.appendChild(c);
   });
-  v.appendChild(grid);
-
-  var card = el('div', 'card');
-  card.appendChild(el('h2', null, 'Class balance'));
-  var legend = el('div', 'legend');
-  D.comp.classCores.forEach(function (c, i) {
-    var s = el('span', null, c); s.style.setProperty('--k', COLORS[i % 3]); legend.appendChild(s);
-  });
-  card.appendChild(legend);
-  var t = el('table');
-  var hr = el('tr');
+  var card = el('div', 'card'); card.appendChild(el('h2', null, 'Class balance'));
+  var t = el('table'); var hr = el('tr');
   ['Class'].concat(D.comp.classCores).concat(['Total']).forEach(function (h) { hr.appendChild(el('th', null, h)); });
   t.appendChild(hr);
   D.comp.classes.forEach(function (c) {
-    var tr = el('tr');
-    tr.appendChild(el('td', null, c.cls));
+    var tr = el('tr'); tr.appendChild(el('td', null, c.cls));
     c.counts.forEach(function (n) { tr.appendChild(el('td', n === 0 ? 'zero' : null, String(n))); });
-    tr.appendChild(el('td', null, String(c.total)));
-    t.appendChild(tr);
+    tr.appendChild(el('td', null, String(c.total))); t.appendChild(tr);
   });
-  card.appendChild(t);
-  card.appendChild(el('div', 'mute', 'Red means nobody of that class in the core.'));
+  card.appendChild(t); card.appendChild(el('div', 'hint', 'Red means nobody of that class in the core.'));
   v.appendChild(card);
 }
 
 function renderVault(v) {
-  var card = el('div', 'card');
-  card.appendChild(el('h2', null, 'Guild vault - items for sale'));
+  var card = el('div', 'card'); card.appendChild(el('h2', null, 'Guild vault - items for sale'));
   if (!D.vault.length) card.appendChild(el('div', 'mute', 'Nothing for sale right now.'));
-  var grid = el('div', 'grid');
+  var g = el('div', 'grid');
   D.vault.forEach(function (it) {
-    var t = el('div', 'tile');
-    t.appendChild(el('b', null, it.item));
+    var t = el('div', 'vt'); t.appendChild(el('b', null, it.item));
     t.appendChild(el('div', 'mute', it.left + ' left'));
-    var price = [];
-    if (it.dkp !== null) price.push(it.dkp + ' DKP');
-    if (it.gold !== null) price.push(it.gold + ' gold');
-    t.appendChild(el('div', null, price.join('  or  ') || 'Ask an officer'));
-    grid.appendChild(t);
+    var p = []; if (it.dkp !== null) p.push(it.dkp + ' DKP'); if (it.gold !== null) p.push(it.gold + ' gold');
+    t.appendChild(el('div', null, p.join(' or ') || 'Ask an officer'));
+    g.appendChild(t);
   });
-  card.appendChild(grid);
-  v.appendChild(card);
+  card.appendChild(g); v.appendChild(card);
 }
 
 function renderDonors(v) {
-  var card = el('div', 'card');
-  card.appendChild(el('h2', null, 'Top gold donors'));
+  var card = el('div', 'card'); card.appendChild(el('h2', null, 'Top gold donors'));
   if (!D.donors.length) card.appendChild(el('div', 'mute', 'No donations yet.'));
-  var max = Math.max.apply(null, D.donors.map(function (d) { return d.gold; }).concat([1]));
   D.donors.forEach(function (d, i) {
-    var row = el('div', 'row');
-    row.appendChild(el('span', 'rank', String(i + 1)));
-    row.appendChild(el('span', 'name', d.name));
-    var bar = el('span', 'bar'); var f = el('i');
-    f.style.width = d.gold / max * 100 + '%'; f.style.background = 'var(--pink)';
-    bar.appendChild(f); row.appendChild(bar);
-    row.appendChild(el('span', 'val', d.gold + 'g'));
-    card.appendChild(row);
+    var row = el('div', 'row'); row.appendChild(el('span', 'd', '#' + (i + 1)));
+    row.appendChild(el('span', 'w', d.name)); row.appendChild(el('span', 'n', d.gold + 'g')); card.appendChild(row);
   });
   v.appendChild(card);
 }
 
 function renderBank(v) {
-  var grid = el('div', 'grid');
-  [['Gold in bank', D.bank.gold], ['Gold donated', D.bank.donated], ['Vault units left', D.bank.units]].forEach(function (x) {
-    var t = el('div', 'tile');
-    t.appendChild(el('div', 'mute', x[0]));
-    t.appendChild(el('b', null, x[1] === null ? '-' : String(x[1])));
-    grid.appendChild(t);
+  var g = el('div', 'grid');
+  [['Gold in bank', D.bank.gold], ['Gold donated', D.bank.donated], ['Vault units left', D.bank.units]].forEach(function (x, i) {
+    var t = el('div', 'tile'); t.style.setProperty('--k', COLORS[i % 3]);
+    t.appendChild(el('div', 'mute', x[0])); t.appendChild(el('b', null, x[1] === null ? '-' : String(x[1]))); g.appendChild(t);
   });
-  v.appendChild(grid);
+  v.appendChild(g);
 }
 </script>
 </body>
